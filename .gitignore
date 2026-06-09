@@ -1,0 +1,11 @@
+*.tar.gz
+*.h5ad
+*.h5
+*.loom
+results/
+*.csv
+*.tsv
+*.mtx
+*.pt
+*.pickle
+__pycache__/

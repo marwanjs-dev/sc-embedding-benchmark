@@ -1,0 +1,20 @@
+defaults:
+  min_genes: 200
+  min_cells: 3
+  max_pct_mt: 20
+  n_top_genes: 2000
+  hvg_flavor: cell_ranger
+  subset_hvgs: true
+
+datasets:
+  - name: pbmc3k
+    input: data/raw/pbmc3k.h5ad
+    output: data/processed/pbmc3k_processed.h5ad
+
+  - name: pbmc10k
+    input: data/raw/pbmc10k.h5ad
+    output: data/processed/pbmc10k_processed.h5ad
+
+  - name: pbmc_dataset
+    input: data\raw\pbmc_dataset.h5ad
+    output: data/processed/pbmc_dataset_processed.h5ad

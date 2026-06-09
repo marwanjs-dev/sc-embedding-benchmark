@@ -1,0 +1,26 @@
+name: sc-embedding-benchmark
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - scanpy
+  - anndata
+  - umap-learn
+  - matplotlib
+  - seaborn
+  - plotly
+  - pip:
+    - torch
+    - pytorch-lightning
+    - scvi-tools
+    - scib
+    - scgpt
+    - harmony-pytorch
+    - cellxgene
+    - gunicorn>=20.0.4

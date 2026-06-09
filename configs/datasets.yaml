@@ -1,0 +1,35 @@
+datasets:
+  pbmc3k:
+    provider: scanpy
+    fn: pbmc3k
+    note: "Use scanpy.datasets.pbmc3k() to fetch a small example PBMC dataset"
+
+  pbmc_dataset:
+    provider: scvi
+    fn: pbmc_dataset
+    note: "scvi-tools may provide a helper; downloader will try scvi.data.pbmc_dataset() if available"
+
+  pbmc10k:
+    provider: url
+    url: "https://cf.10xgenomics.com/samples/cell-exp/3.0.0/pbmc_10k_v3/pbmc_10k_v3_filtered_feature_bc_matrix.h5"
+    note: "10x Genomics PBMC 10k; add a direct h5ad or 10x HDF5 URL here if you have one"
+
+  kang_ifnb:
+    provider: url
+    url: "https://files.figshare.com/18037739/pbmc.h5ad"
+    note: "Kang et al. IFN-beta PBMC — often provided via GEO/SRA; add a preprocessed h5ad URL or download externally"
+
+  pancreas_multi_study:
+    provider: url
+    url: "https://figshare.com/ndownloader/files/24539828"
+    note: "Pancreas multi-study collections (e.g., Baron, Muraro). Add assembled h5ad URL or produce locally"
+
+  tabula_sapiens_subset:
+    provider: url
+    url: "https://datasets.cellxgene.cziscience.com/0b29f4ce-5e72-4356-b74b-b54714979234.h5ad"
+    note: "Tabula Sapiens subset: recommend pre-downloaded h5ad for a subset to keep runtimes small"
+
+  pbmcpedia_slim:
+    provider: url
+    url: "https://web.ccb.uni-saarland.de/downloads/pbmcpedia/pbmcpedia-v20250915-full.h5ad"
+    note: "Large harmonized PBMC atlas with annotations. Use later for scalability; file is ~1.4 GB."

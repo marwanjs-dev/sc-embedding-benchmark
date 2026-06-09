@@ -1,0 +1,42 @@
+benchmark:
+  output_dir: results/benchmark/pbmc3k
+  seed: 0
+  n_neighbors: 15
+
+datasets:
+  pbmc3k:
+    path: data/processed/pbmc3k_processed.h5ad
+    loader: src.utils.io:load_h5ad
+    label_key: labels
+    batch_key: batch
+    notes: "PBMC3k processed AnnData with raw counts saved in adata.layers['counts']."
+
+methods:
+  pca:
+    module: src.models.pca:PCAWrapper
+    params:
+      n_components: 50
+    summary: "Linear baseline for the benchmark."
+    interpretation: "PCA provides a deterministic linear projection and is a useful reference point for comparing nonlinear embeddings."
+
+  scvi:
+    module: src.models.scVI:SCVIWrapper
+    params:
+      init:
+        n_latent: 10
+        n_hidden: 128
+        n_layers: 2
+      train:
+        max_epochs: 20
+    summary: "Probabilistic deep generative baseline."
+    interpretation: "scVI learns a latent space directly from raw counts while modeling technical variation such as batch."
+
+  scgpt:
+    module: src.models.scGPT:ScGPTWrapper
+    params:
+      model_path: src/models/weights/scgpt
+      call:
+        batch_size: 64
+        device: cpu
+    summary: "Pretrained transformer embedding baseline."
+    interpretation: "scGPT uses a pretrained tokenized gene representation to produce cell embeddings without retraining the foundation model."
